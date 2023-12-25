@@ -1,20 +1,36 @@
-import { ToEvent, hyperLayer, ifApp, map, mapSimultaneous, rule, toKey, withCondition, withMapper } from "karabiner.ts"
+import { ifApp, map, rule, toKey } from "karabiner.ts"
 
 const appFilter = ifApp('^com.github.wez.wezterm$')
 
-const tmuxControl: ToEvent = {key_code: 'b', modifiers: ['left_control']}
-
-const tmux: {[key: string]: ToEvent | ToEvent[]} = {
-  main: [tmuxControl, { key_code: 'g'}],
-  projecs: [tmuxControl, { key_code: 'f'}],
-  newWindow: [tmuxControl, { key_code: 'c'}],
-  goto1: [tmuxControl, { key_code: '1'}],
-  goto2: [tmuxControl, { key_code: '2'}],
-  goto3: [tmuxControl, { key_code: '3'}],
-  goto4: [tmuxControl, { key_code: '4'}],
+const tmuxControl = toKey('b', 'left_control')
+const tmux = {
+  main: [tmuxControl, toKey('b')],
+  projecs: [tmuxControl, toKey('f')],
+  newWindow: [tmuxControl, toKey('n')],
+  goto1: [tmuxControl, toKey(1)],
+  goto2: [tmuxControl, toKey(2)],
+  goto3: [tmuxControl, toKey(3)],
+  goto4: [tmuxControl, toKey(4)],
 }
 
+const harpoonControl = [toKey('spacebar'), toKey('h')]
+const VimHarpoon = {
+  explorer: [...harpoonControl, toKey('e')],
+  addFile: [...harpoonControl, toKey('a')],
+  goto1: [...harpoonControl, toKey(1)],
+  goto2: [...harpoonControl, toKey(2)],
+  goto3: [...harpoonControl, toKey(3)],
+  goto4: [...harpoonControl, toKey(4)],
+}
+
+// todo: think abit about this and the hyperKey because it might collide with other hyperKey functions
 const mappings = [
+  map('o', 'Hyper').to(VimHarpoon.explorer),
+  map('a', 'Hyper').to(VimHarpoon.addFile),
+  map('h', 'Hyper').to(VimHarpoon.goto1),
+  map('j', 'Hyper').to(VimHarpoon.goto2),
+  map('k', 'Hyper').to(VimHarpoon.goto3),
+  map('l', 'Hyper').to(VimHarpoon.goto4),
   map('g', 'Hyper').to(tmux.main),
   map('f', 'Hyper').to(tmux.projecs),
   map('n', 'Hyper').to(tmux.newWindow),
