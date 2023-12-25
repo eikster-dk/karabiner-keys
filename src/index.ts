@@ -9,6 +9,7 @@ import { mainApps } from './layers/main-apps'
 import { chatApps } from './layers/chat';
 import { symbolsMap } from './layers/symbols';
 import { emojis } from './layers/emoji';
+import { terminalMappings } from './apps/wezterm';
 
 const ruleset = [
   rule('hyper-key').manipulators([
@@ -18,6 +19,9 @@ const ruleset = [
   simlayer('i', 'symbols-mode').manipulators(symbolsMap),
   simlayer('w', 'main-app-mode').manipulators(mainApps),
   simlayer('z', 'chat-mode').manipulators(chatApps),
+
+  // app specifics
+  terminalMappings
 ];
 
 writeToProfile('eikster', ruleset, {
