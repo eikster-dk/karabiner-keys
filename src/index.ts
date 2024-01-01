@@ -10,6 +10,7 @@ import { chatApps } from './layers/chat';
 import { symbolsMap } from './layers/symbols';
 import { emojis } from './layers/emoji';
 import { terminalMappings } from './apps/wezterm';
+import { arcMappings } from './apps/arc';
 
 const ruleset = [
   rule('hyper-key').manipulators([
@@ -21,7 +22,8 @@ const ruleset = [
   simlayer('z', 'chat-mode').manipulators(chatApps),
 
   // app specifics
-  terminalMappings
+  terminalMappings,
+  arcMappings
 ];
 
 writeToProfile('eikster', ruleset, {
