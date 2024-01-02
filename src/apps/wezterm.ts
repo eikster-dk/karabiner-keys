@@ -4,9 +4,9 @@ const appFilter = ifApp('^com.github.wez.wezterm$')
 
 const tmuxControl = toKey('b', 'left_control')
 const tmux = {
-  main: [tmuxControl, toKey('b')],
+  main: [tmuxControl, toKey('g')],
   projecs: [tmuxControl, toKey('f')],
-  newWindow: [tmuxControl, toKey('n')],
+  newWindow: [tmuxControl, toKey('c')],
   goto1: [tmuxControl, toKey(1)],
   goto2: [tmuxControl, toKey(2)],
   goto3: [tmuxControl, toKey(3)],
