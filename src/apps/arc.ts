@@ -1,4 +1,4 @@
-import { ToEvent, ifApp, map, rule, toKey } from "karabiner.ts"
+import { FromKeyParam, ToEvent, ifApp, map, rule, toKey } from "karabiner.ts"
 
 const appFilter = ifApp('^company.thebrowser.Browser$')
 
@@ -21,11 +21,13 @@ const mappings = [
   map('k', 'Hyper').to(arc.commander),
   map('i', 'Hyper').to(arc.developerTools),
   map('c', 'Hyper').to(arc.copyUrl),
-  map('w', 'Hyper').to(arc.archiveTab),
+  //map('w', 'Hyper').to(arc.archiveTab),
   map('q', 'Hyper').to(arc.clearTabs),
   map('1', 'Hyper').to(arc.goToSpace(1)),
   map('2', 'Hyper').to(arc.goToSpace(2)),
   map('3', 'Hyper').to(arc.goToSpace(3)),
+  map('4', 'Hyper').to(arc.goToSpace(4)),
 ]
+
 
 export const arcMappings = rule('terminal', appFilter).manipulators(mappings)
