@@ -6,6 +6,7 @@ function toNonStandard(name: string) {
 }
 
 export const mainApps = {
+  h: toApp('Polypane'),
   j: toApp('Arc'),
   k: toApp('WezTerm'),
   l: toApp('Obsidian'),
