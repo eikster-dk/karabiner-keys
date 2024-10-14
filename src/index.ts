@@ -18,7 +18,7 @@ const ruleset = [
   ]),
   hyperLayer('e', 'hyper emoji').manipulators(emojis),
   simlayer('i', 'symbols-mode').manipulators(symbolsMap),
-  simlayer('w', 'main-app-mode').manipulators(mainApps),
+  simlayer('e', 'main-app-mode').manipulators(mainApps),
   simlayer('z', 'chat-mode').manipulators(chatApps),
 
   // app specifics
