@@ -15,7 +15,7 @@ export const mainApps = {
   f: toApp("Figma"),
   h: toApp("Polypane"),
   j: toApp("Arc"),
-  k: toApp("WezTerm"),
+  k: toApp("Ghostty"),
   l: toApp("Obsidian"),
   t: toApp("Things3"),
   m: toApp("Spotify"),
