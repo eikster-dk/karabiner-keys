@@ -11,6 +11,7 @@ import { symbolsMap } from './layers/symbols';
 import { emojis } from './layers/emoji';
 import { terminalMappings } from './apps/wezterm';
 import { arcMappings } from './apps/arc';
+import { ghosttyTerminalMappings } from './apps/ghostty';
 
 const ruleset = [
   rule('hyper-key').manipulators([
@@ -18,12 +19,13 @@ const ruleset = [
   ]),
   hyperLayer('e', 'hyper emoji').manipulators(emojis),
   simlayer('i', 'symbols-mode').manipulators(symbolsMap),
-  simlayer('e', 'main-app-mode').manipulators(mainApps),
+  simlayer('w', 'main-app-mode').manipulators(mainApps),
   simlayer('z', 'chat-mode').manipulators(chatApps),
 
   // app specifics
   terminalMappings,
-  arcMappings
+  arcMappings,
+  ghosttyTerminalMappings
 ];
 
 writeToProfile('eikster', ruleset, {
