@@ -19,13 +19,25 @@ const ruleset = [
     "danish mappings for zsa voyager so it works across all operating systems",
     ifDevice({ vendor_id: 12951, product_id: 6519 }),
   ).manipulators([
-    map("7", "right_option").to("8", ["left_shift", "left_option"]),
-    map("0", "right_option").to("9", ["left_shift", "left_option"]),
-    map("2", "right_option").to("backslash", ["left_option"]),
-    map("non_us_backslash").to("grave_accent_and_tilde"),
-    map("non_us_backslash", "left_shift").to("grave_accent_and_tilde", ["left_shift"]),
-    map("4", "right_option").to("non_us_backslash"), // $
-    map("equal_sign", "right_option").to("i", "left_option"), // $
+    map("7", "right_option")
+      .to("8", ["left_shift", "left_option"])
+      .description("on macos, will print  {"),
+    map("0", "right_option")
+      .to("9", ["left_shift", "left_option"])
+      .description("on macos will print }"),
+    map("2", "right_option")
+      .to("backslash", ["left_option"])
+      .description("on macos will print @"),
+    map("non_us_backslash")
+      .to("grave_accent_and_tilde")
+      .description("on macos will print <"),
+    map("non_us_backslash", "left_shift")
+      .to("grave_accent_and_tilde", ["left_shift"])
+      .description("will print >"),
+    map("4", "right_option").to("non_us_backslash").description("will print $"),
+    map("equal_sign", "right_option")
+      .to("i", "left_option")
+      .description("will print |"),
   ]),
   rule("hyper-key").manipulators([map("⇪").toHyper()]),
   hyperLayer("e", "hyper emoji").manipulators(emojis),
