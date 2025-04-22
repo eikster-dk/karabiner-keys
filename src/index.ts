@@ -14,10 +14,12 @@ import { terminalMappings } from "./apps/wezterm";
 import { arcMappings } from "./apps/arc";
 import { ghosttyTerminalMappings } from "./apps/ghostty";
 
+const zsaVoyager = { vendor_id: 12951, product_id: 6519 };
+
 const ruleset = [
   rule(
     "danish mappings for zsa voyager so it works across all operating systems",
-    ifDevice({ vendor_id: 12951, product_id: 6519 }),
+    ifDevice(zsaVoyager),
   ).manipulators([
     map("7", "right_option")
       .to("8", ["left_shift", "left_option"])
@@ -38,7 +40,11 @@ const ruleset = [
     map("equal_sign", "right_option")
       .to("i", "left_option")
       .description("will print |"),
+    map("non_us_backslash", "right_option")
+      .to("7", ["left_shift", "left_option"])
+      .description("will print backslash"),
   ]),
+
   rule("hyper-key").manipulators([map("⇪").toHyper()]),
   hyperLayer("e", "hyper emoji").manipulators(emojis),
   simlayer("i", "symbols-mode").manipulators(symbolsMap),
